@@ -27,13 +27,14 @@
 
 var jrrToken = {
 	init : function ( config ){
-		var jrrToken.tokenContainer = config.tokenContainer,
-			jrrToken.submitBtn = config.submitBtn,
-			jrrToken.inputID = config.inputID,
-			jrrToken.formID = config.formID,
-			jrrToken.$tokenContainer = $(jrrToken.tokenContainer);
+		 jrrToken.tokenContainer = config.tokenContainer,
+		jrrToken.submitBtn = config.submitBtn,
+		jrrToken.inputID = config.inputID,
+		jrrToken.formID = config.formID,
+		jrrToken.clearBtn = config.clearBtn,
+		jrrToken.$tokenContainer = $(jrrToken.tokenContainer);
 
-		jrrToken.addEvents();
+			jrrToken.addEvents();
 
 		jrrToken.formID.append('<textarea name="finaldata" type="hidden" id="ttText" style="display: none;"></textarea>');
 	},
@@ -51,7 +52,6 @@ var jrrToken = {
 		jrrToken.inputID.on('paste', function (event) {	
 			setTimeout( function () {
 				jrrToken.displayItem ( jrrToken.inputID , jrrToken.inputID.val().split(' ') );
-
 			}, 1);
 			
 		});
@@ -63,6 +63,8 @@ var jrrToken = {
 		jrrToken.submitBtn.on('click', function () {
 			jrrToken.collectInputItems();
 		});
+
+		jrrToken.clearBtn.on('click', this.removeAll);
 	},
 
 	directData : function ( obj , event ) {
@@ -81,13 +83,17 @@ var jrrToken = {
 			if ( event.currentTarget.value === "") {
 				
 				// go get it remove the last one
-				jrrToken.getItems().last().remove();  
+				jrrToken.getItems().last().remove(); 
+
+				// update final array
+				jrrToken.collectDOMItems(); 
 			}
 		}
 	},  
 
 	displayItem : function ( obj, token ) {
-		var tokenArray = [];
+		var self = jrrToken,
+		tokenArray = [];
 
 		for( var i = 0; i < token.length; i+=1 ) {
 			if ( token[i] != "" ) {
@@ -107,8 +113,16 @@ var jrrToken = {
 		}
 	},
 
-	getItems : function (  ) {
+	getItems : function () {
 		return $(jrrToken.tokenContainer).children('div');
+	},
+
+	removeAll : function () {
+		var items = jrrToken.getItems(),
+			max = items.length;
+		for(var i = max; i > 0; i--) {
+			$(items[i - 1]).remove();
+		}
 	},
 
 	collectInputItems : function () {
@@ -144,6 +158,7 @@ jrrToken.init( {
 	tokenContainer : '#token', // dont pass in an object
 	submitBtn : $('#submit'),
 	inputID : $('#friend'),
+	clearBtn : $('#clear'),
 	formID : $('#tokenTime')
 });
 
