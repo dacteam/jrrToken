@@ -1,40 +1,15 @@
-<?php
-	var_dump($_POST);
-
-?>
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
-		<link href="style.css" rel="stylesheet">
-	</head>
-	<body>
-		<h1>J.R.R. Token</h1>
-			<form id="tokenTime" method="post" action="slider.php">
-			<div id="token">
-				<input id="friend">
-			</div>
-
-			<button id="submit" type="submit">Submit</button>
-			</form>
-			<button id="clear">Clear</button>
-		</div>
-<script>
-
 var jrrToken = {
 	init : function ( config ){
-		 jrrToken.tokenContainer = config.tokenContainer,
-		jrrToken.submitBtn = config.submitBtn,
-		jrrToken.inputID = config.inputID,
-		jrrToken.formID = config.formID,
-		jrrToken.clearBtn = config.clearBtn,
+		(config == undefined) ? config = {} : config = config;
+		jrrToken.tokenContainer =  (( typeof config.tokenContainer  == 'object') ?  config.tokenContainer.selector : config.tokenContainer) || $('[data-jrrToken]').selector,
+		jrrToken.submitBtn = config.submitBtn || $('[data-jrrSubmit]'),
+		jrrToken.inputID = config.inputID || $('[data-jrrInput]'),
+		jrrToken.formID = config.formID || $('[data-jrrForm]'),
+		jrrToken.clearBtn = config.clearBtn || $('[data-jrrClearBtn]'),
 		jrrToken.$tokenContainer = $(jrrToken.tokenContainer);
 
-			jrrToken.addEvents();
+		jrrToken.addEvents(jrrToken.tokenContainer);
+		
 
 		jrrToken.formID.append('<textarea name="finaldata" type="hidden" id="ttText" style="display: none;"></textarea>');
 	},
@@ -57,14 +32,22 @@ var jrrToken = {
 		});
 
 		$(document).on('click', function () {
-			(document.activeElement.id == 'friend' ) ? jrrToken.$tokenContainer.addClass('inputChange') : jrrToken.$tokenContainer.removeClass('inputChange');
+			(document.activeElement.id == 'theInput' ) ? jrrToken.$tokenContainer.addClass('inputChange') : jrrToken.$tokenContainer.removeClass('inputChange');
 		});
 
-		jrrToken.submitBtn.on('click', function () {
+		jrrToken.submitBtn.on('click', function (e) {
 			jrrToken.collectInputItems();
+
+			// for presentation on the demo site
+			e.preventDefault();
+			jrrToken.removeAll();
+			jrrToken.inputID.val('');
+
 		});
 
-		jrrToken.clearBtn.on('click', this.removeAll);
+		if(jrrToken.clearBtn){
+			jrrToken.clearBtn.on('click', this.removeAll);
+		}
 	},
 
 	directData : function ( obj , event ) {
@@ -147,28 +130,14 @@ var jrrToken = {
 		}
 		//output final array to hidden textarea
 		jrrToken.outputData( finalArray );
+
+				// for presentation on the demo site
+
+		$('#outputDiv').find('p').text(finalArray);
+		$('#outputDiv').removeClass('hidden');
 	},
 
 	outputData : function ( array ) {
 		 $('#ttText').val( array );
 	}
 }
-
-jrrToken.init( {
-	tokenContainer : '#token', // dont pass in an object
-	submitBtn : $('#submit'),
-	inputID : $('#friend'),
-	clearBtn : $('#clear'),
-	formID : $('#tokenTime')
-});
-
-</script>
-	</body>
-</html>
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

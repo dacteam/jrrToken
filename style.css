@@ -1,141 +1,323 @@
+@font-face {
+    font-family: 'DejaVuSansBold';
+    src: url('fonts/DejaVuSans-Bold-webfont.eot');
+    src: url('fonts/DejaVuSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/DejaVuSans-Bold-webfont.woff') format('woff'),
+         url('fonts/DejaVuSans-Bold-webfont.ttf') format('truetype'),
+         url('fonts/DejaVuSans-Bold-webfont.svg#DejaVuSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Calli';
+    src: url('fonts/Calligraffiti.ttf') format('truetype');
+    font-style: normal;
+
+}
+
 body {
-			width: 40%;
-			margin: 0 auto;
-		   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-		   font-weight: 300;
-			background: url('nami.png') ;
-			color: #fff;
+	margin:0; padding:0;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	background: #f2f2f2;
+	color: #fff;
+}
+::-moz-selection { background: #000; text-shadow: none; color: #fff;}
+::selection {background: #000; text-shadow: none; color: #fff;}
+.hidden { display: none;}
+.unit { float: left;}
+.sized { margin: 0 auto; width: 1000px; position: relative;}
 
-		}
+.size1of3 { width: 33.3333333%; }
+.size2of3 { width: 66.6666666%; }
 
-		h1 {
-			font-family: 'Questrial', sans-serif;
-			font-size: 80px;
-			color: #999;
-			text-shadow: 0 1px 3px #000;
+.size1of4 { width: 24.99%; }
+.size3of4 { width: 75%; }
 
-		}
-		#token {
-			position: relative;
-			width: 450px;
-			min-height: 200px;
-			margin: 0;
-			padding: 2px 4px 4px;
-			background: #fff;
-			border-radius: 4px;
-			cursor: text;
-			background: url('nami-in.png') ;
-			box-shadow: inset 0 1px 3px #000,
-						inset 0 -1px 0 #333;
-		
-		}
-		.console {
-			position: relative;
-		}
-		.inputChange {
+.size1of5 { width: 20%; }
+.size2of5 { width: 40%; }
+.size3of5 { width: 60%; }
+.size4of5 { width: 80%; }
 
-			background: rgba(0,0,0, 0.5) !important;
+.padding {padding: 20px;}
 
-		}
+.p-r { padding-right: 20px;}
+.p-l {padding-left: 20px; }
+.p-tb {padding: 20px 0; }
+.p-rl {padding: 0 20px; }
+.margin { margin:40px 20px ;}
+.m-r { margin-right: 20px;}
+.m-l {margin-left: 20px; }
+.m-rl {margin: 0 20px; }
+.section-full { clear: both;}
+h1,h2,h3,h4,h5,h6 { margin: 0; font-family: 'DejaVuSansBold'; }
+p { padding: 0 20px;}
+ul {padding: 0px 40px; margin: 5px 0 0;list-style-type: none;}
+ul li {padding-bottom: 5px; font-size: 14px; position: relative;}
 
-		#friend {
-			background: transparent;
-			color: #fff;
-			font-size: 18px;
-		}
-		#token > div {
-			display: inline-block;
-			position: relative;
-			padding: 8px 30px 8px 9px;
-			margin: 1px 4px 1px 1px;
-			font-size: 16px;
-			background: #a90329;
-			background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019));
-			background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
-			background: -o-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
-			background: -ms-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
-			background: linear-gradient(to bottom, #a90329 0%,#8f0222 44%,#6d0019 100%);
-			color: #fff;
-			text-shadow: 1px 1px 1px #4F0112;
-			border-radius: 4px;
-			border: 1px solid #660016;
-			box-shadow: inset 0 1px #FF053B;
+ul li:before {
+	content:'→';
+	position: absolute;
+	left: -20px;
+	top: 0;
+}
+aside h2 {font-size: 20px;}
 
-			cursor: pointer;
+header {
+
+	padding: 60px 0 0 60px;
+	height: 200px;
+	background: #000 url(images/header-bg.png) repeat-x bottom center;
+}
+
+header h1 {
+	display:inline-block;
+	margin: 0; padding: 0;
+	font-size: 45px;
+	font-family: 'DejaVuSansBold';
+	color: #fff;
+
+}
+
+header span {
+	display: block;
+	font-family: 'Calli';
+	font-size: 35px;
+}
+footer{ 
+	padding-bottom: 10px;
+	text-align: center;
+	color: #000;
+}
+section > div, aside > div:first-child {
+	background: #fff;
+	color: #000;
+	box-shadow: -1px -1px 3px rgba(0,0,0,0.2)
+
+}
+
+h1{ 
+	padding: 10px 0;
+	position: relative;
+
+	background: #000;
+	color: #fff;
+	font-family: 'DejaVuSansBold';
+	text-align: center;
+}
+
+aside a, aside a:hover { text-decoration: none;}
+aside h3 {
+	position: relative;
+	color: #ddd;
+	cursor: pointer;
+	font-size: 24px;
+	text-align: right;
+	text-shadow: 0 -1px 1px #999,
+			0 1px 1px #fff ;
+}
+aside h3:hover{
+	color: #222;
+
+}
+
+aside h3:before {
+	position: absolute;
+	content: '+';
+	height: 45px;
+	width: 45px;
+	left: 19px;
+	top: -15px;
+	border-radius: 30px;
+	border:1px solid #ddd;
+	box-shadow: inset 0 -1px 2px #fff,
+				inset 0 1px 1px #aaa;
+
+	text-align: center;
+	text-shadow: 0 -1px 0 #888,
+			0 1px 1px #fff ;
+	line-height: 45px;
+	color: #bbb;
+	background-color:#eaeaea;
+}
+aside h3:hover:before { 
+	color: #222;
+	text-shadow: 0 -1px 0 #444,
+			0 1px 1px #fff ;
+}
 
 
+.inputChange {
+	background: url('images/mypattern1.png') !important;
+	box-shadow: inset 0 1px 3px #ccc,
+				inset 0 -1px 2px #ddd !important;
+}
 
-		}
-		span {
-			position: absolute;
-			right: 1px;
-			top: 2px;
-
-			padding: 1px 6px 3px;
-			font-size: 10px;
-
-			cursor: pointer;
-			background: #660016;
-			color: #fff;
-			border-radius: 10px;
-			box-shadow: inset 0 1px 10px rgba(0,0,0,0.4),
-						-1px 0px 15px rgb(38,0,8),
-						-1px 1px #B20326;
-			
-		}
-
-		span:hover {
-			background: #FF053B;
-
-			-webkit-animation: glow 1400ms infinite;
-
-		}
-		input:focus {
-			outline: none;
-		}
-
-		input {	
-			margin: 0;
-			margin-left: 2px;
-			border: none;
-			height: 40px;
-			font-size: 16px;
-
-		}
-
-		button {
-			display: inline-block;
-			padding: 15px 20px;
-			font-size: 18px;
-			border: 1px solid #111;
-			  background-color: #f7f7f7;
-			  background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
-			  background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); 
-			  background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7); 
-			  background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
-			  background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
-			color: #555;
+[data-jrrInput] {
+	background: transparent;
+	color: #222;
+	font-size: 18px;
+}
+[data-jrrToken] {
+	position: relative;
+	width:auto;
+	min-height: 200px;
+	margin: 0;
+	padding:4px;
+	background: url('images/mypattern.png');
+	border-radius: 4px;
+	cursor: text;
+	box-shadow: inset 0 1px 3px #aaa,
+				inset 0 -1px 2px #ccc;
+}
 
 
-		}
+[data-jrrToken] > div {
+	display: inline-block;
+	position: relative;
+	padding: 8px 30px 8px 9px;
+	margin: 3px 4px 1px 1px;
+	font-size: 16px;
+	background: #a90329;
+	background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019));
+	background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
+	background: -o-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
+	background: -ms-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
+	background: linear-gradient(to bottom, #a90329 0%,#8f0222 44%,#6d0019 100%);
+	color: #fff;
+	text-shadow: 1px 1px 1px #4F0112;
+	border-radius: 4px;
+	border: 1px solid #660016;
+	box-shadow: inset 0 1px #FF053B;
 
-		button {
-			margin: 10px 0;
-		}
+	cursor: pointer;
+}
+.console {
+	position: relative;
+}
+.console span {
+	position: absolute;
+	right: 1px;
+	top: 2px;
 
-		[type=submit] {
-			border-radius: 6px 0 0 6px;
-		}
-		#clear {
-			position: absolute;
-			left:96px;
-			bottom:0;
-			border-radius: 0 6px 6px 0;
-		}
+	padding: 1px 6px 3px;
+	font-size: 10px;
 
-		@-webkit-keyframes glow {
-		 	0%   { background: #6d0019; }
-		 	50%   { background: #A50326; }
-		 	100% { background: #6d0019; }
-		}
+	cursor: pointer;
+	background: #660016;
+	color: #fff;
+	border-radius: 10px;
+	box-shadow: inset 0 1px 5px rgba(0,0,0,0.4),
+				-1px 0px 5px rgb(38,0,8),
+				-1px 1px #B20326;
+}
+.console span:hover {
+	background: #FF053B;
+	-webkit-animation: glow 1400ms infinite;
+	-moz-animation: glow 1400ms infinite;
+
+}
+input:focus {
+	outline: none;
+}
+
+input {	
+	margin: 0;
+	margin-left: 2px;
+	border: none;
+	height: 40px;
+	font-size: 16px;
+}
+
+button {
+	margin: 10px 0;
+	display: inline-block;
+	padding: 15px 20px;
+	font-size: 18px;
+	border: 1px solid #ccc;
+	background-color: #f7f7f7;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
+	background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); 
+	background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7); 
+	background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
+	background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
+	color: #555;
+	cursor: pointer;
+}
+button:active { color: #000;}
+
+.action { 
+	position: absolute;
+	padding-left: 50px;
+	background: url('images/arrow1.png') no-repeat top left;
+	font-size: 14px;
+
+	font-family: "Calli";
+	bottom: -20px;
+	left: 80px;
+	color: #555;
+
+}
+
+
+[data-jrrClearBtn] {
+	position: absolute;
+	left: 119px;
+	bottom: 20px;
+}
+
+#outputDiv {
+	overflow: auto;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 3px #aaa,
+ 				inset 0 -1px 2px #ccc;
+	background: url('images/mypattern.png');
+	color: #000;
+}
+
+pre {
+	margin: 0;
+	padding-bottom: 15px;
+	background: url('images/mypattern.png');
+	border-radius: 4px;
+	box-shadow: inset 0 1px 3px #aaa,
+ 				inset 0 -1px 2px #ccc;
+}
+.codeblock { padding-top: 40px;}
+#step1, #step2, #step3, #step4, #step5  {position: relative;}
+#step1:before, #step2:before, #step3:before, #step4:before, #step5:before {
+	position:absolute;
+	text-shadow: 0 -1px 1px #bbb,
+				0 1px 1px #fff ;
+	color: #eaeaea;
+	font-size: 80px;
+	left: -60px;
+	top: -30px;
+}
+#step1:before { content:'1'; }
+#step2:before { content:'2'; }
+#step3:before { content:'3'; }
+#step4:before { content:'4'; }
+#step5:before { content:'5'; }
+
+@-webkit-keyframes glow {
+	 	0%   { background: #6d0019; }
+	 	50%   { background: #A50326; }
+	 	100% { background: #6d0019; }
+	}
+@-moz-keyframes glow {
+ 	0%   { background: #6d0019; }
+ 	50%   { background: #A50326; }
+ 	100% { background: #6d0019; }
+}
+
+
+.cf:before, .cf:after {
+	content: "";
+	display: table;
+}
+.cf:after { clear: both; }
+.cf { *zoom: 1; /* For IE 6/7 (trigger hasLayout) */ }
